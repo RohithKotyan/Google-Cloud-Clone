@@ -5,7 +5,7 @@
 ![Firebase](https://img.shields.io/badge/Firebase-v8.8.1-FFCA28?logo=firebase&logoColor=black)
 ![Cloudinary](https://img.shields.io/badge/Cloudinary-REST_API-3448C5?logo=cloudinary&logoColor=white)
 ![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3.4.3-38B2AC?logo=tailwind-css&logoColor=white)
-![License](https://img.shields.io/badge/License-MIT-green)
+
 
 A production-ready, full-stack cloud file management platform inspired by Google Drive. Built with React 18, Vite, Google Cloud Firestore, Firebase Authentication, and Cloudinary Cloud Storage. The system delivers complete user-level data isolation, hierarchical folder organization, collaborative file sharing with granular permissions, in-app multimedia previews, drag-and-drop uploads, trash recovery, and dynamic storage quota tracking.
 
