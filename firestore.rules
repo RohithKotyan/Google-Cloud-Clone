@@ -1,0 +1,24 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /myfiles/{fileId} {
+      // Owner can read, or any user whose email is in sharedEmails
+      allow read: if request.auth != null && (
+        request.auth.uid == resource.data.uid ||
+        (resource.data.sharedEmails != null && request.auth.token.email in resource.data.sharedEmails)
+      );
+      
+      // Only authenticated users can create files owned by themselves
+      allow create: if request.auth != null && request.auth.uid == request.resource.data.uid;
+      
+      // Owner can update, or editors in sharedWith
+      allow update: if request.auth != null && (
+        request.auth.uid == resource.data.uid ||
+        (resource.data.sharedEmails != null && request.auth.token.email in resource.data.sharedEmails)
+      );
+      
+      // Only owner can delete
+      allow delete: if request.auth != null && request.auth.uid == resource.data.uid;
+    }
+  }
+}
